@@ -12,7 +12,11 @@
  *   3. A fetch submit that navigates to the thank-you page on success, so
  *      the conversion lands on a real page either way.
  *   4. A pending state, so nobody double-submits.
+ *   5. A copy of the lead written to the owner's Google Sheet, when
+ *      PUBLIC_SHEET_ENDPOINT is configured. See src/scripts/sheet.ts.
  */
+
+import { mirrorToSheet } from "./sheet";
 
 interface Rule {
   /** The field's name attribute, which is also the email label. */
@@ -181,8 +185,13 @@ export function initQuoteForm(): void {
       return;
     }
 
-    // Valid past this point. Without fetch, fall through to the native post
-    // rather than swallowing the submission.
+    // Valid past this point. Copy the lead into the owner's sheet before
+    // anything else can go wrong or navigate away. It is fire and forget: it
+    // cannot fail the submission, and the email path below is untouched.
+    mirrorToSheet(form);
+
+    // Without fetch, fall through to the native post rather than swallowing
+    // the submission.
     if (typeof fetch !== "function") return;
 
     event.preventDefault();

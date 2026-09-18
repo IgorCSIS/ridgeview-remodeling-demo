@@ -53,6 +53,11 @@ jobs:
           # renders in an unconfigured state that tells the visitor to email
           # instead, rather than silently failing.
           PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
+          # Optional. The Apps Script web app URL that appends each lead to a
+          # Google Sheet. Without it the form still emails as before, and the
+          # sheet copy is simply skipped. Setup is in the lead-followup repo
+          # under tools/sheet-endpoint/README.md.
+          PUBLIC_SHEET_ENDPOINT: ${{ secrets.PUBLIC_SHEET_ENDPOINT }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

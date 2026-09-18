@@ -28,6 +28,28 @@ The site is good enough to sell as a website on its own. Behind it, a thin free 
 second half of the pitch: the lead does not just land in an inbox and rot. That is the upsell, and
 the demo makes it concrete instead of theoretical.
 
+## Sending leads to a spreadsheet as well as your inbox
+
+The form emails you through Web3Forms. It can also drop each lead into a
+Google Sheet at the same time, which is what makes the list sortable, keepable,
+and drafting-ready.
+
+Set a repository secret `PUBLIC_SHEET_ENDPOINT` to the web app URL of the
+Apps Script in the companion repo, then re-run the deploy workflow. The full
+setup, and an honest read on who can read and write that sheet, is here:
+
+https://github.com/IgorCSIS/lead-followup/blob/main/tools/sheet-endpoint/README.md
+
+With the secret unset, which is how this repository ships, nothing changes:
+no request is made and the form behaves exactly as before.
+
+The email path is untouched either way. It is a real HTML post that works
+with scripting off, and the sheet copy is a best-effort extra that cannot
+fail a submission.
+
+Once the sheet is filling up, the drafting tool turns it into same-day
+replies: https://igorcsis.github.io/lead-followup/
+
 ## The stack, and why
 
 | Layer | Choice | Why |
