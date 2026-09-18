@@ -12,8 +12,28 @@ import { projects } from "../data/content";
 
 const tiles = import.meta.glob<string>("../assets/tile-*.svg", { query: "?raw", import: "default", eager: true });
 
+/**
+ * Look up a project's tile artwork by its `art` key.
+ *
+ * This throws rather than returning an empty string on a miss. The first
+ * version fell back to "" and a mismatched key ("bathroom" against a file
+ * named tile-bath.svg) rendered a blank tile that survived a build, a
+ * deploy, and a visual pass before a human spotted it. Failing the build is
+ * noisier and much cheaper.
+ */
 function tileFor(art: string): string {
-  return tiles[`../assets/tile-${art}.svg`] ?? "";
+  const key = `../assets/tile-${art}.svg`;
+  const svg = tiles[key];
+  if (!svg) {
+    const available = Object.keys(tiles)
+      .map((k) => k.replace("../assets/tile-", "").replace(".svg", ""))
+      .sort()
+      .join(", ");
+    throw new Error(
+      `No project tile for art key "${art}" (looked for ${key}). Available keys: ${available}.`,
+    );
+  }
+  return svg;
 }
 ---
 

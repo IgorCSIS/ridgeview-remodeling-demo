@@ -16,6 +16,32 @@
 import { nav, business, demoNotice, hero } from "../data/content";
 import Icon from "@components/Icon.astro";
 import logo from "@assets/logo-lockup.svg?raw";
+
+interface Props {
+  /**
+   * Which primary action the nav offers.
+   *
+   * "quote" is the marketing default. "home" is for the post-conversion
+   * page, where "Get my free quote" would be asking someone to do the thing
+   * they just did. The call button also comes off there: the Ridgeview
+   * number is a fictional 555 for the demo brand, and it should never be
+   * the main action presented to someone who has already converted.
+   */
+  cta?: "quote" | "home";
+}
+
+const { cta = "quote" } = Astro.props;
+
+const homeHref = import.meta.env.BASE_URL;
+const primaryCta =
+  cta === "home"
+    ? { label: "Back to home", href: homeHref }
+    : { label: hero.primaryCta.label, href: hero.primaryCta.href };
+
+// Section anchors only exist on the home page, so the post-conversion nav
+// drops them rather than offering links that go nowhere.
+const navItems = cta === "home" ? [] : nav;
+const showCall = cta !== "home";
 ---
 
 <div class="relative z-50 bg-ink-900 text-sand-100">
@@ -35,23 +61,26 @@ import logo from "@assets/logo-lockup.svg?raw";
     </a>
 
     <ul class="hidden items-center gap-7 lg:flex">
-      {nav.map((item) => (
+      {navItems.map((item) => (
         <li><a href={item.href} class="nav-link" data-nav-link>{item.label}</a></li>
       ))}
     </ul>
 
     <div class="flex items-center gap-2">
-      <a
-        href={business.phoneHref}
-        class="btn btn-secondary !min-h-[2.75rem] !px-4 !py-2 text-small"
-        aria-label={`Call ${business.name} at ${business.phone}`}
-      >
-        <Icon name="phone" class="h-4 w-4" />
-        <span class="hidden xl:inline">{business.phone}</span>
+      {showCall && (
+        <a
+          href={business.phoneHref}
+          class="btn btn-secondary !min-h-[2.75rem] !px-4 !py-2 text-small"
+          aria-label={`Call ${business.name} at ${business.phone}`}
+        >
+          <Icon name="phone" class="h-4 w-4" />
+          <span class="hidden xl:inline">{business.phone}</span>
+        </a>
+      )}
+      <a href={primaryCta.href} class="btn btn-primary !min-h-[2.75rem] !px-5 !py-2 text-small hidden sm:inline-flex">
+        {primaryCta.label}
       </a>
-      <a href={hero.primaryCta.href} class="btn btn-primary !min-h-[2.75rem] !px-5 !py-2 text-small hidden sm:inline-flex">
-        {hero.primaryCta.label}
-      </a>
+      {navItems.length > 0 && (
       <button
         id="menu-toggle"
         type="button"
@@ -65,9 +94,11 @@ import logo from "@assets/logo-lockup.svg?raw";
           <span data-bar="bottom" class="absolute bottom-[3px] left-0 block h-0.5 w-5 rounded bg-current transition-transform duration-320"></span>
         </span>
       </button>
+      )}
     </div>
   </nav>
 
+  {navItems.length > 0 && (
   <div id="mobile-menu" class="max-h-0 overflow-hidden border-t border-line bg-sand-100 transition-[max-height] duration-320 ease-out lg:hidden">
     <ul class="flex flex-col px-5 py-2">
       {nav.map((item) => (
@@ -76,25 +107,29 @@ import logo from "@assets/logo-lockup.svg?raw";
         </li>
       ))}
       <li class="py-4">
-        <a href={hero.primaryCta.href} class="btn btn-primary w-full" data-mobile-link>{hero.primaryCta.label}</a>
+        <a href={primaryCta.href} class="btn btn-primary w-full" data-mobile-link>{primaryCta.label}</a>
       </li>
     </ul>
   </div>
+  )}
 </header>
 
 <span id="top" class="block h-0"></span>
 
 <!-- Sticky mobile CTA. Appears once the hero is behind you and hides again
-     over the form, where it would point at something already on screen. -->
+     over the form, where it would point at something already on screen.
+     Home page only: after converting there is nothing left to push. -->
+{showCall && (
 <div
   id="mobile-cta"
   class="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex translate-y-full gap-2 border-t border-line bg-sand-100/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-md transition-transform duration-420 sm:hidden"
 >
-  <a href={hero.primaryCta.href} class="btn btn-primary flex-1">{hero.primaryCta.label}</a>
+  <a href={primaryCta.href} class="btn btn-primary flex-1">{primaryCta.label}</a>
   <a href={business.phoneHref} class="btn btn-secondary !px-4" aria-label={`Call ${business.phone}`}>
     <Icon name="phone" class="h-5 w-5" />
   </a>
 </div>
+)}
 
 <style>
   #mobile-cta.is-visible { transform: translateY(0); pointer-events: auto; }

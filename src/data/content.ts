@@ -193,7 +193,7 @@ export const projects = {
       detail: "Removed a load-bearing wall, added an island, and updated all kitchen electrical. Nine weeks.",
     },
     {
-      art: "bathroom",
+      art: "bath",
       name: "Hall bath rebuild",
       city: "La Mesa",
       detail: "Taken to the studs, new waterproofing, curbless shower, and new venting. Four weeks.",

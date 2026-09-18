@@ -62,7 +62,10 @@ const f = quoteForm.fields;
           style="transition-delay:80ms"
         >
           <input type="hidden" name="access_key" value={accessKey} />
-          <input type="hidden" name="subject" value={`New ${business.shortName} lead`} />
+          <!-- The subject is rewritten just before submit to name the project
+               type and city, so the inbox is scannable without opening
+               anything. This static value is the no-JS fallback. -->
+          <input type="hidden" name="subject" value={`New ${business.shortName} lead`} data-subject-prefix={`New ${business.shortName} lead`} />
           <input type="hidden" name="from_name" value={business.name} />
           <!-- No-JS path: Web3Forms redirects here after a successful post. -->
           <input type="hidden" name="redirect" value={thanksUrl} />

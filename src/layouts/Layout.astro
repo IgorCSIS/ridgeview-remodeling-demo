@@ -23,9 +23,16 @@ interface Props {
   description?: string;
   /** Thank-you page sets this so it stays out of search results. */
   noindex?: boolean;
+  /** Which primary action the nav offers. See Nav.astro. */
+  navCta?: "quote" | "home";
 }
 
-const { title = meta.title, description = meta.description, noindex = false } = Astro.props;
+const {
+  title = meta.title,
+  description = meta.description,
+  noindex = false,
+  navCta = "quote",
+} = Astro.props;
 
 /** Join the Pages base path onto a site-relative asset path. */
 function withBase(path: string): string {
@@ -115,7 +122,7 @@ const schema = {
       Skip to content
     </a>
 
-    <Nav />
+    <Nav cta={navCta} />
 
     <main id="main" class="relative z-10">
       <slot />

@@ -92,6 +92,37 @@ function showStatus(status: HTMLElement, message: string, tone: "ok" | "error"):
   status.classList.toggle("text-danger", tone === "error");
 }
 
+/**
+ * Build the owner-email subject from what the homeowner actually picked.
+ *
+ * A static "New Ridgeview lead" is useless once there is more than one in
+ * the inbox. Naming the project type and the city means the contractor can
+ * triage from the notification on a job site without opening anything.
+ *
+ * Runs only on the scripted path. The no-JS submission keeps the static
+ * value already in the hidden field, which is why that field ships with a
+ * sensible fallback rather than empty.
+ *
+ * Parameters:
+ *   form (HTMLFormElement): The quote form.
+ *
+ * Returns:
+ *   string: A subject line such as
+ *     "New Ridgeview lead: Kitchen remodel - El Cajon".
+ */
+function buildSubject(form: HTMLFormElement): string {
+  const subjectField = form.querySelector<HTMLInputElement>('input[name="subject"]');
+  const prefix = subjectField?.dataset.subjectPrefix || "New lead";
+
+  const projectType =
+    form.querySelector<HTMLSelectElement>('[name="Project type"]')?.value.trim() ?? "";
+  const city = form.querySelector<HTMLInputElement>('[name="City or ZIP"]')?.value.trim() ?? "";
+
+  // Drop whichever part is missing rather than emitting a dangling separator.
+  const parts = [projectType, city].filter(Boolean);
+  return parts.length > 0 ? `${prefix}: ${parts.join(" - ")}` : prefix;
+}
+
 export function initQuoteForm(): void {
   const form = document.getElementById("quote-form") as HTMLFormElement | null;
   if (!form) return;
@@ -155,6 +186,13 @@ export function initQuoteForm(): void {
     if (typeof fetch !== "function") return;
 
     event.preventDefault();
+
+    // Stamp the subject from the final field values, after validation has
+    // passed and immediately before the request. Doing it here rather than
+    // on change means late edits are always reflected.
+    const subjectField = form.querySelector<HTMLInputElement>('input[name="subject"]');
+    if (subjectField) subjectField.value = buildSubject(form);
+
     if (button) button.disabled = true;
     if (label) label.textContent = "Sending";
 
