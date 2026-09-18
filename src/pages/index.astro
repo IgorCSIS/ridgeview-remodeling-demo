@@ -1,0 +1,43 @@
+---
+/**
+ * Home page.
+ *
+ * Section order is deliberate and follows the questions a homeowner asks in
+ * sequence, not the order a contractor likes to talk:
+ *
+ *   Hero         what do they do, and near me
+ *   TrustStrip   can I work with them (proof while the claim is still up)
+ *   Services     do they do my kind of job
+ *   Projects     have they built anything (remodeling is bought with eyes)
+ *   Reviews      words validate the pictures, so they sit together
+ *   Process      what happens if I raise my hand
+ *   Costs        the question every other contractor site ducks
+ *   ServiceArea  a qualification gate, one scroll before typing
+ *   QuoteForm    the only conversion action on the site
+ *   Faq          catches whoever scrolled past with one question left
+ */
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import TrustStrip from "@components/TrustStrip.astro";
+import Services from "@components/Services.astro";
+import Projects from "@components/Projects.astro";
+import Reviews from "@components/Reviews.astro";
+import Process from "@components/Process.astro";
+import Costs from "@components/Costs.astro";
+import ServiceArea from "@components/ServiceArea.astro";
+import QuoteForm from "@components/QuoteForm.astro";
+import Faq from "@components/Faq.astro";
+---
+
+<Layout>
+  <Hero />
+  <TrustStrip />
+  <Services />
+  <Projects />
+  <Reviews />
+  <Process />
+  <Costs />
+  <ServiceArea />
+  <QuoteForm />
+  <Faq />
+</Layout>

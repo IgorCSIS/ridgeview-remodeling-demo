@@ -1,0 +1,24 @@
+---
+/**
+ * Trust strip, immediately under the hero so the proof lands while the hero
+ * claim is still on screen.
+ *
+ * Text, not badge images. A row of association logos reads as decoration; a
+ * plain statement reads as a fact. "Licensed and insured" carries a "(demo)"
+ * marker because this brand is fictional and a real license number here
+ * would be a fabrication that could collide with a real licensee.
+ */
+import { trustStrip } from "../data/content";
+import Icon from "@components/Icon.astro";
+---
+
+<section aria-label="At a glance" class="border-b border-line bg-sand-200">
+  <ul class="mx-auto grid max-w-content grid-cols-2 gap-x-6 gap-y-3 px-5 py-5 sm:px-8 md:flex md:items-center md:justify-between">
+    {trustStrip.map((item) => (
+      <li class="flex items-center gap-2 text-small font-medium text-ink-600">
+        <Icon name="check" class="h-4 w-4 shrink-0 text-ember-600" />
+        {item}
+      </li>
+    ))}
+  </ul>
+</section>

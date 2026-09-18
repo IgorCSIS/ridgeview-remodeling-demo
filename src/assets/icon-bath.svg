@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-bath-title">
+  <title id="rv-ico-bath-title">Bathroom remodel</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M7 24H41V30A10 10 0 0 1 31 40H17A10 10 0 0 1 7 30Z"/>
+    <path d="M14 40V42M34 40V42"/>
+    <path d="M13 24V13H21V17"/>
+    <path d="M27 6H42V18H27Z"/>
+    <path d="M34.5 6V18M27 12H42"/>
+  </g>
+</svg>

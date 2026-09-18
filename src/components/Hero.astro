@@ -1,0 +1,38 @@
+---
+/**
+ * Hero. Dark band, so the first thing on screen has weight.
+ *
+ * No form here. A homeowner will not describe an $80,000 project to a
+ * company they have known for four seconds. Hero forms win on small tickets,
+ * not on this one, so the hero's only job is the promise plus one button.
+ */
+import { hero, business } from "../data/content";
+import Icon from "@components/Icon.astro";
+import backdrop from "@assets/hero-backdrop.svg?raw";
+---
+
+<section class="band-dark relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 text-sand-100 opacity-[0.16]" aria-hidden="true">
+    <span class="block h-full w-full [&>svg]:h-full [&>svg]:w-full [&>svg]:object-cover" set:html={backdrop} />
+  </div>
+
+  <div class="relative mx-auto max-w-content px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
+    <div class="max-w-2xl">
+      <p class="eyebrow is-visible">{hero.eyebrow}</p>
+      <h1 class="t-display mt-6 text-sand-50">{hero.headline}</h1>
+      <p class="t-lead mt-6 !text-sand-400">{hero.sub}</p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href={hero.primaryCta.href} class="btn btn-primary">
+          {hero.primaryCta.label}
+          <Icon name="arrow" class="h-4 w-4" />
+        </a>
+        <a href={hero.secondaryCta.href} class="btn btn-secondary">{hero.secondaryCta.label}</a>
+      </div>
+
+      <p class="mt-7 text-small text-sand-400">
+        Or call <a href={business.phoneHref} class="font-semibold text-sand-100 underline underline-offset-4 hover:text-accentDark">{business.phone}</a>. A person picks up.
+      </p>
+    </div>
+  </div>
+</section>

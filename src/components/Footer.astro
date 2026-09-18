@@ -1,0 +1,52 @@
+---
+/**
+ * Footer. Repeats the one action, carries the service area for local search,
+ * and states plainly that the brand is a demo with a link to the real
+ * portfolio behind it.
+ */
+import { business, footer, nav, hero } from "../data/content";
+import Icon from "@components/Icon.astro";
+import logo from "@assets/logo-lockup.svg?raw";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="band-dark relative z-10 mt-0">
+  <div class="mx-auto max-w-content px-5 py-16 sm:px-8">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <span class="block w-[200px] text-sand-100" set:html={logo} />
+        <p class="t-body mt-5 text-small text-sand-400">{footer.blurb}</p>
+        <a href={business.phoneHref} class="mt-5 inline-flex items-center gap-2 text-lead font-semibold text-sand-100 hover:text-accentDark">
+          <Icon name="phone" class="h-5 w-5" />
+          {business.phone}
+        </a>
+      </div>
+
+      <nav class="md:col-span-3" aria-label="Footer">
+        <p class="text-label font-semibold uppercase text-sand-400">Sections</p>
+        <ul class="mt-4 space-y-2.5 text-small">
+          {nav.map((item) => (
+            <li><a href={item.href} class="text-sand-100 hover:text-accentDark">{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="md:col-span-4">
+        <p class="text-label font-semibold uppercase text-sand-400">Service area</p>
+        <p class="mt-4 text-small text-sand-100">{business.cities.join(" · ")}</p>
+        <a href={hero.primaryCta.href} class="btn btn-primary mt-6 w-full sm:w-auto">{hero.primaryCta.label}</a>
+      </div>
+    </div>
+
+    <div class="mt-14 border-t border-[color:var(--line-dark)] pt-6">
+      <p class="text-small text-sand-400">{footer.demoNotice}</p>
+      <div class="mt-3 flex flex-col gap-2 text-small text-sand-400 sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; {year} {business.builtBy}. Built as a portfolio sample.</p>
+        <a href={business.portfolioUrl} class="text-sand-100 underline underline-offset-2 hover:text-accentDark" target="_blank" rel="noopener noreferrer">
+          See Igor Lima's portfolio
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

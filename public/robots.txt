@@ -1,0 +1,8 @@
+# Demo site for a fictional contractor brand, built as a portfolio sample.
+User-agent: *
+Allow: /
+
+# The thank-you page is a post-conversion destination, not a landing page.
+Disallow: /ridgeview-remodeling-demo/thanks/
+
+Sitemap: https://igorcsis.github.io/ridgeview-remodeling-demo/sitemap-index.xml

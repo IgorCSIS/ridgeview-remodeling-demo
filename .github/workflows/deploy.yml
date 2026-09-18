@@ -1,0 +1,71 @@
+# Builds the Astro site and publishes it to GitHub Pages on every push to
+# main. Standard Pages flow from the Astro docs.
+#
+# One-time setup in the repo: Settings > Pages > Source: GitHub Actions.
+# Without that, this workflow runs green but nothing goes live.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Manual trigger, for redeploying after changing a repo secret without
+  # having to push a code change.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Cancel an in-flight deploy when a newer push lands, so main never gets
+# overtaken by a slower older run.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+        env:
+          # Set this as a repo secret (Settings > Secrets and variables >
+          # Actions) to wire the form to a real inbox. Without it the form
+          # renders in an unconfigured state that tells the visitor to email
+          # instead, rather than silently failing.
+          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

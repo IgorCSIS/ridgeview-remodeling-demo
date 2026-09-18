@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-whole-title">
+  <title id="rv-ico-whole-title">Whole-home remodel</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M4 22L24 7L44 22"/>
+    <path d="M8 22V42H40V22"/>
+    <path d="M8 22H40"/>
+    <path d="M8 31H40"/>
+    <path d="M19 22V31"/>
+    <path d="M27 31V42"/>
+    <path d="M13 42V35H19V42"/>
+    <path d="M25 24.5H34V29H25Z"/>
+  </g>
+</svg>

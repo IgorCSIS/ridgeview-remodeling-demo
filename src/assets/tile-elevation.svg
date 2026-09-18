@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="rv-tile-elev-title">
+  <title id="rv-tile-elev-title">Exterior elevation composition</title>
+  <defs>
+    <clipPath id="rv-te-clip"><rect width="800" height="600"/></clipPath>
+    <pattern id="rv-te-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0V50M0 50H50" fill="none" stroke="#DDE4EA" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#rv-te-clip)">
+    <rect width="800" height="600" fill="#FAF7F2"/>
+    <rect width="800" height="600" fill="url(#rv-te-grid)"/>
+    <rect x="560" y="80" width="50" height="80" fill="#0B1F33"/>
+    <path fill="#0B1F33" d="M120 158L400 58L680 158Z"/>
+    <rect x="120" y="150" width="560" height="18" fill="#0B1F33"/>
+    <rect x="150" y="168" width="500" height="328" fill="#F0EBE3"/>
+    <rect x="150" y="168" width="500" height="328" fill="none" stroke="#0B1F33" stroke-width="5"/>
+    <g fill="#33526E">
+      <rect x="195" y="200" width="80" height="70"/>
+      <rect x="360" y="200" width="80" height="70"/>
+      <rect x="525" y="200" width="80" height="70"/>
+      <rect x="195" y="320" width="80" height="80"/>
+      <rect x="525" y="320" width="80" height="80"/>
+    </g>
+    <g fill="none" stroke="#FAF7F2" stroke-width="3">
+      <path d="M235 200V270M400 200V270M565 200V270M235 320V400M565 320V400"/>
+    </g>
+    <rect x="360" y="330" width="80" height="166" fill="#17344B"/>
+    <rect x="360" y="486" width="80" height="10" fill="#C2410C"/>
+    <rect x="40" y="496" width="720" height="6" fill="#0B1F33"/>
+    <g fill="none" stroke="#7C93A6" stroke-width="2">
+      <path d="M150 548H650M150 538V558M650 538V558M400 541V555"/>
+      <path d="M720 58V496M710 58H730M710 496H730M712 168H728"/>
+    </g>
+    <path fill="none" stroke="#C2410C" stroke-width="3" d="M400 536V560"/>
+  </g>
+</svg>

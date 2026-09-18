@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-adu-title">
+  <title id="rv-ico-adu-title">Accessory dwelling unit</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M8 5V42" stroke-dasharray="3 4" opacity="0.55"/>
+    <path d="M3 42H45"/>
+    <path d="M13 25L28 13L43 25"/>
+    <path d="M16 25V42M40 25V42M16 25H40"/>
+    <path d="M25 42V32H32V42"/>
+    <path d="M19 30H23V35H19Z"/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="rv-hero-title">
+  <title id="rv-hero-title">Architectural elevation backdrop</title>
+  <defs>
+    <pattern id="rv-hero-grid-sm" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0V60M0 60H60" fill="none" stroke="currentColor" stroke-width="1"/>
+    </pattern>
+    <pattern id="rv-hero-grid-lg" width="300" height="300" patternUnits="userSpaceOnUse">
+      <path d="M300 0V300M0 300H300" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="900" fill="url(#rv-hero-grid-sm)" opacity="0.22"/>
+  <rect width="1440" height="900" fill="url(#rv-hero-grid-lg)" opacity="0.3"/>
+  <g fill="none" stroke="currentColor" stroke-linejoin="miter">
+    <g opacity="0.16" stroke-width="1.25">
+      <circle cx="300" cy="470" r="250"/>
+      <circle cx="300" cy="470" r="150"/>
+      <path d="M50 470H550M300 220V720"/>
+      <path d="M123 293L477 647M477 293L123 647"/>
+    </g>
+    <g opacity="0.45" stroke-width="1.5">
+      <path d="M700 740H1420"/>
+      <path d="M800 430L1060 300L1320 430M800 430H1320"/>
+      <path d="M840 430V740M1280 430V740"/>
+      <path d="M840 580H1280"/>
+      <path d="M1200 370V340H1232V386"/>
+      <path d="M880 470H960V545H880ZM1000 470H1080V545H1000ZM1120 470H1200V545H1120Z"/>
+      <path d="M920 470V545M1040 470V545M1160 470V545"/>
+      <path d="M880 620H960V700H880ZM1160 620H1240V700H1160Z"/>
+      <path d="M920 620V700M1200 620V700M880 660H960M1160 660H1240"/>
+      <path d="M1030 740V640H1090V740"/>
+    </g>
+    <g opacity="0.3" stroke-width="1">
+      <path d="M820 800H1300M820 792V808M1060 794V806M1300 792V808"/>
+      <path d="M1370 300V740M1362 300H1378M1364 430H1376M1362 740H1378"/>
+      <path d="M820 740V812M1300 740V812"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#C2410C" stroke-width="2" opacity="0.65">
+    <path d="M812 422H828M820 414V430"/>
+    <path d="M1292 422H1308M1300 414V430"/>
+    <path d="M1060 748V772"/>
+  </g>
+</svg>

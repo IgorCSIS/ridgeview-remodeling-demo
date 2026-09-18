@@ -1,0 +1,36 @@
+---
+/**
+ * Services. Fast self-qualification: a visitor should be able to tell in one
+ * glance whether this contractor does their kind of job.
+ */
+import { services } from "../data/content";
+import Icon from "@components/Icon.astro";
+---
+
+<section id="services" class="py-section lg:py-section-lg">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{services.eyebrow}</p>
+      <h2 class="t-h2 mt-5">{services.title}</h2>
+      <p class="t-lead mt-5">{services.intro}</p>
+    </div>
+
+    <ul class="mt-12 grid gap-5 sm:grid-cols-2">
+      {services.items.map((item, i) => (
+        <li class="card card-hover flex flex-col p-7" data-reveal style={`transition-delay:${i * 70}ms`}>
+          <Icon name={item.icon as any} class="h-10 w-10 text-ember-600" />
+          <h3 class="t-h3 mt-5">{item.name}</h3>
+          <p class="t-body mt-3 flex-1 text-small text-ink-600">{item.body}</p>
+          <ul class="mt-6 space-y-2 border-t border-line pt-5">
+            {item.bullets.map((b) => (
+              <li class="flex items-start gap-2.5 text-small text-ink-600">
+                <Icon name="check" class="mt-1 h-3.5 w-3.5 shrink-0 text-ember-600" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

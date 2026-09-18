@@ -1,0 +1,136 @@
+---
+/**
+ * Document shell.
+ *
+ * Owns <head>, the demo disclosure bar, the sticky nav, the footer, and the
+ * two small client scripts.
+ *
+ * Structured data note: this emits GeneralContractor markup with the service
+ * area, but deliberately emits NO Review or AggregateRating. The reviews on
+ * this site are written samples for a fictional brand, and shipping
+ * fabricated review markup is a Google structured-data policy violation. It
+ * is also the kind of fake a human reader cannot see, which is the worst
+ * kind. If this site is white-labeled for a real contractor with real
+ * reviews, that markup can be added then.
+ */
+import "../styles/global.css";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import { business, meta } from "../data/content";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Thank-you page sets this so it stays out of search results. */
+  noindex?: boolean;
+}
+
+const { title = meta.title, description = meta.description, noindex = false } = Astro.props;
+
+/** Join the Pages base path onto a site-relative asset path. */
+function withBase(path: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}/${path.replace(/^\//, "")}`;
+}
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(withBase("og-image.png"), Astro.site).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  name: business.name,
+  description: meta.description,
+  url: canonical,
+  image: ogImage,
+  telephone: business.phone,
+  areaServed: business.cities.map((city) => ({
+    "@type": "City",
+    name: `${city}, California`,
+  })),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "El Cajon",
+    addressRegion: "CA",
+    addressCountry: "US",
+  },
+  knowsAbout: [
+    "Kitchen remodeling",
+    "Bathroom remodeling",
+    "Accessory dwelling units",
+    "Whole home remodeling",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FAF7F2" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />
+
+    <link rel="icon" type="image/svg+xml" href={withBase("favicon.svg")} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..600,0,0&family=Libre+Franklin:wght@400;500;600&display=swap"
+    />
+
+    <!-- Scroll reveals start hidden in CSS so nothing flashes before the
+         observer runs. With scripting off that observer never runs, so this
+         returns everything to its visible state. -->
+    <noscript>
+      <style>
+        [data-reveal] { opacity: 1 !important; transform: none !important; }
+        .eyebrow::before { transform: scaleX(1) !important; }
+      </style>
+    </noscript>
+  </head>
+
+  <body class="relative">
+    <div class="grain" aria-hidden="true"></div>
+
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-ink-800 focus:px-5 focus:py-3 focus:font-semibold focus:text-sand-50"
+    >
+      Skip to content
+    </a>
+
+    <Nav />
+
+    <main id="main" class="relative z-10">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      import { initReveal } from "../scripts/reveal";
+      import { initNav } from "../scripts/nav";
+      import { initQuoteForm } from "../scripts/form";
+
+      initReveal();
+      initNav();
+      initQuoteForm();
+    </script>
+  </body>
+</html>

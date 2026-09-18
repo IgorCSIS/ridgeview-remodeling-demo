@@ -1,0 +1,69 @@
+---
+/**
+ * The icon set, drawn as one component so every glyph shares a grid, a
+ * stroke weight, and a cap style. Drawing them inline rather than pulling an
+ * icon package keeps the set coherent and costs no request.
+ *
+ * All strokes use currentColor, so an icon takes the color of whatever it
+ * sits inside and works on both the sand and navy bands without a variant.
+ *
+ * Icons here are decorative: the adjacent heading always carries the meaning,
+ * so each one is aria-hidden rather than given a redundant label.
+ */
+interface Props {
+  name:
+    | "kitchen"
+    | "bathroom"
+    | "adu"
+    | "wholehome"
+    | "visit"
+    | "quote"
+    | "build"
+    | "check"
+    | "arrow"
+    | "phone"
+    | "plus"
+    | "mark";
+  class?: string;
+}
+
+const { name, class: className = "" } = Astro.props;
+
+// 24x24 grid, 1.5 stroke, round caps and joins. Geometric and measured
+// rather than illustrative: this is a builder's site, not a storybook.
+const paths: Record<Props["name"], string> = {
+  // Cabinet run with a counter and an island: a kitchen in plan.
+  kitchen: `<path d="M3 9h18M3 9V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3M5 9v5h14V9M5 14v5M19 14v5M9 9v5M15 9v5M8 18.5h8"/>`,
+  // Tub elevation with a fixture.
+  bathroom: `<path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3ZM7 12V6.5A1.5 1.5 0 0 1 8.5 5h0A1.5 1.5 0 0 1 10 6.5v.5M7 19l-1 2M17 19l1 2"/>`,
+  // Small detached dwelling: a pitched roof over a simple plan.
+  adu: `<path d="M4 10.5 12 4l8 6.5M6 9.5V20h12V9.5M10 20v-5h4v5M15 12h1"/>`,
+  // A larger house footprint with an interior wall being reworked.
+  wholehome: `<path d="M3 10 12 3l9 7M5 9v11h14V9M12 20v-7M12 13H8.5M12 13h3.5M16 6.5V4h2v4"/>`,
+  // Tape measure: the site visit.
+  visit: `<path d="M4 7h16a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1ZM7 17v-4M11 17v-6M15 17v-4M19 17v-6"/>`,
+  // A document with a figure on it: the written quote.
+  quote: `<path d="M6 3h8l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1ZM14 3v5h5M8.5 13h7M8.5 16.5h4"/>`,
+  // Framing square over a stud line: the build.
+  build: `<path d="M4 20V5.5A1.5 1.5 0 0 1 5.5 4h0A1.5 1.5 0 0 1 7 5.5V20M4 20h16M7 9h5.5M7 13.5h5.5M16.5 20V9.5l3-1.5V20"/>`,
+  check: `<path d="m5 12.5 4.5 4.5L19 7"/>`,
+  arrow: `<path d="M4 12h15M13 6l6 6-6 6"/>`,
+  phone: `<path d="M7.5 3.5h-2A2.5 2.5 0 0 0 3 6c0 8.28 6.72 15 15 15a2.5 2.5 0 0 0 2.5-2.5v-2l-4.5-2-2 2.5a15.6 15.6 0 0 1-5.5-5.5L11 9.5 9 5Z"/>`,
+  plus: `<path d="M12 5v14M5 12h14"/>`,
+  // The brand mark: a ridge line over its own elevation, ticked like a
+  // dimension. Reads at 24px because it is three strokes and nothing else.
+  mark: `<path d="M2 15 12 5l10 10"/><path d="M6.5 15v5.5M17.5 15v5.5M6.5 20.5h11"/>`,
+};
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  aria-hidden="true"
+  set:html={paths[name]}
+/>

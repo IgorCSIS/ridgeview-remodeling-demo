@@ -1,0 +1,102 @@
+---
+/**
+ * Demo disclosure bar plus the sticky nav.
+ *
+ * The disclosure sits above everything and is stated once. One clear
+ * sitewide notice that the brand is fictional lets every other element on
+ * the page be read as design work rather than as a claim, which is what
+ * keeps the gallery and the reviews honest without each card carrying its
+ * own apology.
+ *
+ * On mobile the nav carries only the mark, a call button, and the menu
+ * toggle. The quote CTA lives in the sticky bottom bar instead, because a
+ * top CTA and a bottom CTA on a phone compete and eat the viewport the hero
+ * needs.
+ */
+import { nav, business, demoNotice, hero } from "../data/content";
+import Icon from "@components/Icon.astro";
+import logo from "@assets/logo-lockup.svg?raw";
+---
+
+<div class="relative z-50 bg-ink-900 text-sand-100">
+  <div class="mx-auto flex max-w-content flex-wrap items-center justify-center gap-x-2 gap-y-1 px-5 py-2 text-center text-small">
+    <span class="font-semibold uppercase tracking-[0.13em] text-accentDark">{demoNotice.short}</span>
+    <span class="text-sand-400">{demoNotice.body}</span>
+    <a href={demoNotice.linkHref} class="font-medium text-sand-100 underline underline-offset-2 hover:text-accentDark">
+      {demoNotice.linkLabel}
+    </a>
+  </div>
+</div>
+
+<header class="site-header sticky top-0 z-40" style="height: var(--header-h)">
+  <nav class="mx-auto flex h-full max-w-content items-center justify-between gap-6 px-5 sm:px-8" aria-label="Primary">
+    <a href="#top" class="flex items-center text-ink-800" aria-label={`${business.name}, home`}>
+      <span class="block w-[168px] sm:w-[196px]" set:html={logo} />
+    </a>
+
+    <ul class="hidden items-center gap-7 lg:flex">
+      {nav.map((item) => (
+        <li><a href={item.href} class="nav-link" data-nav-link>{item.label}</a></li>
+      ))}
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={business.phoneHref}
+        class="btn btn-secondary !min-h-[2.75rem] !px-4 !py-2 text-small"
+        aria-label={`Call ${business.name} at ${business.phone}`}
+      >
+        <Icon name="phone" class="h-4 w-4" />
+        <span class="hidden xl:inline">{business.phone}</span>
+      </a>
+      <a href={hero.primaryCta.href} class="btn btn-primary !min-h-[2.75rem] !px-5 !py-2 text-small hidden sm:inline-flex">
+        {hero.primaryCta.label}
+      </a>
+      <button
+        id="menu-toggle"
+        type="button"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Open menu"
+        class="-mr-1 inline-flex h-12 w-12 items-center justify-center rounded-full text-ink-800 lg:hidden"
+      >
+        <span class="relative block h-4 w-5">
+          <span data-bar="top" class="absolute left-0 top-[3px] block h-0.5 w-5 rounded bg-current transition-transform duration-320"></span>
+          <span data-bar="bottom" class="absolute bottom-[3px] left-0 block h-0.5 w-5 rounded bg-current transition-transform duration-320"></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="max-h-0 overflow-hidden border-t border-line bg-sand-100 transition-[max-height] duration-320 ease-out lg:hidden">
+    <ul class="flex flex-col px-5 py-2">
+      {nav.map((item) => (
+        <li class="border-b border-line/70 last:border-0">
+          <a href={item.href} class="block py-3.5 text-ink-800" data-mobile-link>{item.label}</a>
+        </li>
+      ))}
+      <li class="py-4">
+        <a href={hero.primaryCta.href} class="btn btn-primary w-full" data-mobile-link>{hero.primaryCta.label}</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<span id="top" class="block h-0"></span>
+
+<!-- Sticky mobile CTA. Appears once the hero is behind you and hides again
+     over the form, where it would point at something already on screen. -->
+<div
+  id="mobile-cta"
+  class="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex translate-y-full gap-2 border-t border-line bg-sand-100/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-md transition-transform duration-420 sm:hidden"
+>
+  <a href={hero.primaryCta.href} class="btn btn-primary flex-1">{hero.primaryCta.label}</a>
+  <a href={business.phoneHref} class="btn btn-secondary !px-4" aria-label={`Call ${business.phone}`}>
+    <Icon name="phone" class="h-5 w-5" />
+  </a>
+</div>
+
+<style>
+  #mobile-cta.is-visible { transform: translateY(0); pointer-events: auto; }
+  @media (prefers-reduced-motion: reduce) { #mobile-cta { transition: none; } }
+</style>

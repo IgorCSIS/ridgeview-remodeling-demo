@@ -1,0 +1,62 @@
+<!doctype html>
+<!--
+  Source for public/og-image.png. Rendered to PNG with headless Chromium so
+  the card uses the same fonts and palette as the site rather than whatever
+  a server-side SVG rasterizer happens to have installed.
+
+  Regenerate after editing:
+    npx playwright screenshot --viewport-size=1200,630 \
+      scripts/og-image.html public/og-image.png
+-->
+<html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,0,0&family=Libre+Franklin:wght@400;600&display=block">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1200px;height:630px;background:#0B1F33;color:#FAF7F2;
+       font-family:"Libre Franklin",sans-serif;position:relative;overflow:hidden}
+  .grid{position:absolute;inset:0;opacity:.13;
+    background-image:linear-gradient(to right,#FAF7F2 1px,transparent 1px),
+                     linear-gradient(to bottom,#FAF7F2 1px,transparent 1px);
+    background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(60rem 40rem at 78% 40%,#000 10%,transparent 72%)}
+  .inner{position:relative;height:100%;padding:70px 76px;display:flex;
+         flex-direction:column;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:14px;font-family:"Fraunces",serif;
+         font-weight:600;font-size:26px;letter-spacing:.02em}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:74px;line-height:1.04;
+     letter-spacing:-.021em;max-width:880px}
+  .sub{margin-top:26px;font-size:24px;line-height:1.5;color:#C9BCA6;max-width:760px}
+  .foot{display:flex;align-items:center;justify-content:space-between}
+  .meta{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:600;
+        letter-spacing:.13em;text-transform:uppercase;color:#C9BCA6}
+  .dot{width:5px;height:5px;border-radius:99px;background:#D97706}
+  .pill{display:inline-flex;align-items:center;padding:13px 26px;border-radius:999px;
+        background:#C2410C;color:#fff;font-weight:600;font-size:19px}
+  .demo{position:absolute;top:0;left:0;right:0;background:#05111D;padding:10px 0;
+        text-align:center;font-size:14px;font-weight:600;letter-spacing:.13em;
+        text-transform:uppercase;color:#E39A3C}
+</style></head>
+<body>
+  <div class="demo">Demo brand &middot; portfolio sample by Igor Lima</div>
+  <div class="grid"></div>
+  <div class="inner" style="padding-top:104px">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 64 64">
+        <path fill="#FAF7F2" d="M2 31 L32 10 L62 31 L62 42 L32 21 L2 42 Z"/>
+        <path fill="#FAF7F2" d="M29.5 25 H34.5 V38 H29.5 Z"/>
+        <path fill="#C2410C" d="M12 56 L32 42 L52 56 L52 62 L32 48 L12 62 Z"/>
+      </svg>
+      Ridgeview Remodeling
+    </div>
+    <div>
+      <h1>Remodels that finish on schedule and on budget</h1>
+      <p class="sub">Kitchens, bathrooms, ADUs and whole-home projects across East County San Diego.</p>
+    </div>
+    <div class="foot">
+      <div class="meta"><span class="dot"></span>El Cajon<span class="dot"></span>La Mesa<span class="dot"></span>Santee<span class="dot"></span>Alpine</div>
+      <span class="pill">Get my free quote</span>
+    </div>
+  </div>
+</body></html>

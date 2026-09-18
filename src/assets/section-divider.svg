@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" role="img" aria-labelledby="rv-divider-title">
+  <title id="rv-divider-title">Section transition</title>
+  <path fill="currentColor" d="M0 44L720 12L1440 44V120H0Z"/>
+  <g fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3">
+    <path d="M0 28L720 0L1440 28"/>
+    <path d="M240 33.3V23.3M480 22.7V12.7M960 22.7V12.7M1200 33.3V23.3"/>
+  </g>
+  <path fill="none" stroke="#C2410C" stroke-width="3" d="M720 4L1080 20"/>
+</svg>

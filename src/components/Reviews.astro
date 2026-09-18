@@ -1,0 +1,40 @@
+---
+/**
+ * Reviews, directly under the gallery so words validate pictures.
+ *
+ * Two honesty decisions here. The disclaimer sits above the cards rather
+ * than in small print below them, and the attribution is by role and project
+ * rather than an invented full name. A fabricated name next to a "sample"
+ * label is the worst of both worlds: it reads as a lie and it undermines
+ * everything around it. Losing the name costs almost no persuasive force,
+ * because the credibility lives in what the review describes.
+ */
+import { reviews } from "../data/content";
+---
+
+<section id="reviews" class="bg-sand-200 py-section lg:py-section-lg">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{reviews.eyebrow}</p>
+      <h2 class="t-h2 mt-5">{reviews.title}</h2>
+      <p class="mt-5 rounded-card border border-line bg-sand-50 px-5 py-4 text-small text-ink-600">
+        {reviews.disclaimer}
+      </p>
+    </div>
+
+    <ul class="mt-10 grid gap-5 sm:grid-cols-2">
+      {reviews.items.map((item, i) => (
+        <li class="card relative p-7" data-reveal style={`transition-delay:${i * 70}ms`}>
+          <span class="absolute right-5 top-5 text-label font-semibold uppercase tracking-[0.13em] text-ink-500">
+            Sample
+          </span>
+          <p class="t-body pr-16 text-small">{item.body}</p>
+          <p class="mt-5 border-t border-line pt-4 text-small font-semibold text-ink-800">
+            {item.name}
+            <span class="font-normal text-ink-500"> · {item.city} · {item.project}</span>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

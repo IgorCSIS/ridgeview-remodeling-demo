@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-consult-title">
+  <title id="rv-ico-consult-title">Site visit and consultation</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M3 42H45"/>
+    <path d="M13 13H23V17H13Z"/>
+    <path d="M18 17L11 42M18 17V42M18 17L25 42"/>
+    <path d="M23 15L36 17" stroke-dasharray="3 3" opacity="0.6"/>
+    <path d="M29 24L36 17L43 24"/>
+    <path d="M29 24V42M43 24V42"/>
+    <path d="M33 42V34H39V42"/>
+  </g>
+</svg>

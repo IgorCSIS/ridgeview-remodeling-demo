@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-kitchen-title">
+  <title id="rv-ico-kitchen-title">Kitchen remodel</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M17 6H31L35 14H13Z"/>
+    <path d="M5 21H43V24H5Z"/>
+    <path d="M8 24V42H40V24"/>
+    <path d="M24 24V42"/>
+    <path d="M8 31H24"/>
+    <path d="M13 27.5H19"/>
+    <path d="M31 31V36"/>
+  </g>
+</svg>

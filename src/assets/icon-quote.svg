@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-quote-title">
+  <title id="rv-ico-quote-title">Written quote</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M9 6H32L39 13V42H9Z"/>
+    <path d="M32 6V13H39"/>
+    <path d="M14 19H34M14 24H34M14 29H26"/>
+    <path d="M24 34H34V40H24Z"/>
+    <path d="M24 37H34"/>
+  </g>
+</svg>

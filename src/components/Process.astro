@@ -1,0 +1,40 @@
+---
+/**
+ * Process. The natural step before the form: here is exactly what happens if
+ * you raise your hand. Each step names what the homeowner actually receives,
+ * because the fear is not the construction, it is being left in the dark.
+ */
+import { process } from "../data/content";
+import Icon from "@components/Icon.astro";
+import divider from "@assets/section-divider.svg?raw";
+---
+
+<div class="text-ink-800 [&>svg]:block [&>svg]:h-auto [&>svg]:w-full" aria-hidden="true" set:html={divider} />
+
+<section id="process" class="band-dark py-section lg:py-section-lg">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{process.eyebrow}</p>
+      <h2 class="t-h2 mt-5 text-sand-50">{process.title}</h2>
+      <p class="t-lead mt-5 !text-sand-400">{process.intro}</p>
+    </div>
+
+    <ol class="mt-12 grid gap-5 lg:grid-cols-3">
+      {process.steps.map((step, i) => (
+        <li class="card flex flex-col p-7" data-reveal style={`transition-delay:${i * 80}ms`}>
+          <div class="flex items-center justify-between">
+            <Icon name={step.icon as any} class="h-9 w-9 text-accentDark" />
+            <span class="text-label font-semibold uppercase text-sand-400">{step.step}</span>
+          </div>
+          <h3 class="t-h3 mt-5 text-sand-50">{step.name}</h3>
+          <p class="t-body mt-3 flex-1 text-small text-sand-400">{step.body}</p>
+          <p class="mt-5 border-t border-[color:var(--line-dark)] pt-4 text-small text-sand-100">
+            <span class="font-semibold">What you get: </span>{step.deliverable}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<div class="rotate-180 text-ink-800 [&>svg]:block [&>svg]:h-auto [&>svg]:w-full" aria-hidden="true" set:html={divider} />

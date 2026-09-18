@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="rv-tile-bath-title">
+  <title id="rv-tile-bath-title">Bathroom composition</title>
+  <defs><clipPath id="rv-tb-clip"><rect width="800" height="600"/></clipPath></defs>
+  <g clip-path="url(#rv-tb-clip)">
+    <rect width="800" height="600" fill="#FAF7F2"/>
+    <rect width="340" height="600" fill="#F0EBE3"/>
+    <g fill="none" stroke="#B9C6D0" stroke-width="2">
+      <path d="M68 0V600M136 0V600M204 0V600M272 0V600"/>
+      <path d="M0 75H340M0 150H340M0 225H340M0 300H340M0 375H340M0 450H340M0 525H340"/>
+    </g>
+    <rect y="540" width="800" height="60" fill="#DDE4EA"/>
+    <path fill="#17344B" d="M480 330V200A110 110 0 0 1 700 200V330Z"/>
+    <path fill="none" stroke="#FAF7F2" stroke-width="4" d="M502 330V200A88 88 0 0 1 678 200V330"/>
+    <rect x="436" y="180" width="16" height="120" fill="#C2410C"/>
+    <rect x="728" y="180" width="16" height="120" fill="#C2410C"/>
+    <rect x="420" y="360" width="340" height="20" fill="#0B1F33"/>
+    <rect x="430" y="380" width="320" height="160" fill="#F0EBE3"/>
+    <g fill="none" stroke="#33526E" stroke-width="3"><path d="M590 380V540M430 440H590"/></g>
+    <rect x="470" y="408" width="60" height="7" fill="#0B1F33"/>
+    <rect x="640" y="452" width="60" height="7" fill="#0B1F33"/>
+    <rect x="60" y="388" width="320" height="16" fill="#0B1F33"/>
+    <path fill="#33526E" d="M70 404H370V500A40 40 0 0 1 330 540H110A40 40 0 0 1 70 500Z"/>
+    <path fill="none" stroke="#FAF7F2" stroke-width="4" d="M104 440H336"/>
+  </g>
+</svg>

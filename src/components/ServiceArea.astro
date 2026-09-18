@@ -1,0 +1,29 @@
+---
+/**
+ * Service area, placed just before the form.
+ *
+ * This is a qualification gate rather than a selling point. High on the page
+ * it burns prime space; here it makes the homeowner confirm "yes, they come
+ * to my street" one scroll before they start typing.
+ */
+import { serviceArea, business } from "../data/content";
+---
+
+<section id="service-area" class="bg-sand-200 py-section">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="grid gap-8 lg:grid-cols-12 lg:items-center" data-reveal>
+      <div class="lg:col-span-6">
+        <p class="eyebrow">{serviceArea.eyebrow}</p>
+        <h2 class="t-h2 mt-5">{serviceArea.title}</h2>
+        <p class="t-lead mt-5">{serviceArea.body}</p>
+      </div>
+      <ul class="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end">
+        {business.cities.map((city) => (
+          <li class="rounded-full border border-line-strong bg-sand-50 px-5 py-2.5 text-small font-medium text-ink-800">
+            {city}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

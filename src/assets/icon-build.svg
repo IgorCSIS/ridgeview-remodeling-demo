@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="rv-ico-build-title">
+  <title id="rv-ico-build-title">Construction and build</title>
+  <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="butt" stroke-linejoin="miter">
+    <path d="M3 42H45" opacity="0.55"/>
+    <path d="M6 10H42M6 38H42"/>
+    <path d="M6 10V38M42 10V38"/>
+    <path d="M15 10V38M24 10V38M33 10V38"/>
+    <path d="M6 38L42 10"/>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+---
+/**
+ * What projects cost.
+ *
+ * Most contractor sites publish no number anywhere, which is the largest
+ * single source of bounce: the homeowner leaves to find a number somewhere
+ * else. Publishing ranges does two things at once that usually trade against
+ * each other. It raises form completions, and it filters out people who
+ * cannot fund the job, which saves the contractor the drive.
+ *
+ * These are typical East County ranges for a demo brand. A real contractor
+ * adopting this site replaces them with their own. See the README.
+ */
+import { costs } from "../data/content";
+import Icon from "@components/Icon.astro";
+---
+
+<section id="costs" class="py-section lg:py-section-lg">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <div data-reveal>
+          <p class="eyebrow">{costs.eyebrow}</p>
+          <h2 class="t-h2 mt-5">{costs.title}</h2>
+          <p class="t-lead mt-5">{costs.intro}</p>
+        </div>
+
+        <div class="mt-8 rounded-card border border-line bg-sand-200 p-6" data-reveal style="transition-delay:80ms">
+          <h3 class="text-label font-semibold uppercase text-ink-500">{costs.moversTitle}</h3>
+          <ul class="mt-4 space-y-2.5">
+            {costs.movers.map((m) => (
+              <li class="flex items-start gap-2.5 text-small text-ink-600">
+                <Icon name="plus" class="mt-1 h-3.5 w-3.5 shrink-0 text-ember-600" />
+                <span>{m}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <ul class="space-y-4">
+          {costs.bands.map((band, i) => (
+            <li class="card flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 p-6" data-reveal style={`transition-delay:${i * 70}ms`}>
+              <div>
+                <h3 class="t-h3">{band.name}</h3>
+                <p class="mt-1 text-small text-ink-500">{band.note}</p>
+              </div>
+              <p class="font-display text-h3 font-semibold text-ember-700">{band.range}</p>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 text-small text-ink-500" data-reveal>{costs.footnote}</p>
+      </div>
+    </div>
+  </div>
+</section>

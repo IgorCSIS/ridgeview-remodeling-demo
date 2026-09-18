@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 316 80" role="img" aria-labelledby="rv-lockup-title">
+  <title id="rv-lockup-title">Ridgeview Remodeling</title>
+  <g transform="translate(0 10) scale(0.9375)">
+    <path fill="currentColor" d="M2 31 L32 10 L62 31 L62 42 L32 21 L2 42 Z"/>
+    <path fill="currentColor" d="M29.5 25 H34.5 V38 H29.5 Z"/>
+    <path fill="#C2410C" d="M12 56 L32 42 L52 56 L52 62 L32 48 L12 62 Z"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter" transform="translate(84 13)">
+    <path transform="translate(0 0)" d="M3 25V3H15L19 7V10L15 14H3M11 14L19 25"/>
+    <path transform="translate(28 0)" d="M4 3V25"/>
+    <path transform="translate(42 0)" d="M3 3H13L19 9V19L13 25H3Z"/>
+    <path transform="translate(70 0)" d="M19 9L13 3H9L3 9V19L9 25H13L19 19V15H13"/>
+    <path transform="translate(98 0)" d="M19 3H3V25H19M3 14H15"/>
+    <path transform="translate(126 0)" d="M3 3L11 25L19 3"/>
+    <path transform="translate(154 0)" d="M4 3V25"/>
+    <path transform="translate(168 0)" d="M19 3H3V25H19M3 14H15"/>
+    <path transform="translate(196 0)" d="M3 3L8 25L15 9L22 25L27 3"/>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter" opacity="0.72" transform="translate(84 55) scale(0.43)">
+    <path transform="translate(0 0)" d="M3 25V3H15L19 7V10L15 14H3M11 14L19 25"/>
+    <path transform="translate(50 0)" d="M19 3H3V25H19M3 14H15"/>
+    <path transform="translate(100 0)" d="M3 25V3L15 16L27 3V25"/>
+    <path transform="translate(158 0)" d="M9 3H13L19 9V19L13 25H9L3 19V9Z"/>
+    <path transform="translate(208 0)" d="M3 3H13L19 9V19L13 25H3Z"/>
+    <path transform="translate(258 0)" d="M19 3H3V25H19M3 14H15"/>
+    <path transform="translate(308 0)" d="M3 3V25H19"/>
+    <path transform="translate(358 0)" d="M4 3V25"/>
+    <path transform="translate(394 0)" d="M3 25V3L19 25V3"/>
+    <path transform="translate(444 0)" d="M19 9L13 3H9L3 9V19L9 25H13L19 19V15H13"/>
+  </g>
+</svg>

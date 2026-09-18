@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="rv-tile-living-title">
+  <title id="rv-tile-living-title">Open-plan living composition</title>
+  <defs><clipPath id="rv-tl-clip"><rect width="800" height="600"/></clipPath></defs>
+  <g clip-path="url(#rv-tl-clip)">
+    <rect width="800" height="600" fill="#FAF7F2"/>
+    <rect width="800" height="70" fill="#F0EBE3"/>
+    <g fill="#DDE4EA">
+      <rect x="90" width="14" height="70"/><rect x="250" width="14" height="70"/>
+      <rect x="410" width="14" height="70"/><rect x="570" width="14" height="70"/>
+      <rect x="730" width="14" height="70"/>
+    </g>
+    <rect x="110" y="110" width="580" height="320" fill="#DDE4EA"/>
+    <rect x="110" y="110" width="580" height="320" fill="none" stroke="#0B1F33" stroke-width="8"/>
+    <g fill="#0B1F33">
+      <rect x="251" y="110" width="8" height="320"/>
+      <rect x="396" y="110" width="8" height="320"/>
+      <rect x="541" y="110" width="8" height="320"/>
+      <rect x="110" y="187" width="580" height="6"/>
+    </g>
+    <rect y="430" width="800" height="170" fill="#F0EBE3"/>
+    <rect y="426" width="800" height="5" fill="#0B1F33"/>
+    <g fill="none" stroke="#DDE4EA" stroke-width="3"><path d="M0 470H800M0 512H800M0 554H800"/></g>
+    <rect x="596" y="70" width="8" height="82" fill="#0B1F33"/>
+    <circle cx="600" cy="172" r="22" fill="#0B1F33"/>
+    <rect x="190" y="352" width="330" height="48" fill="#0B1F33"/>
+    <rect x="175" y="400" width="360" height="52" fill="#17344B"/>
+    <g fill="#0B1F33"><rect x="190" y="452" width="12" height="18"/><rect x="508" y="452" width="12" height="18"/></g>
+    <rect x="300" y="462" width="170" height="12" fill="#C2410C"/>
+    <g fill="#C2410C"><rect x="310" y="474" width="10" height="26"/><rect x="450" y="474" width="10" height="26"/></g>
+  </g>
+</svg>

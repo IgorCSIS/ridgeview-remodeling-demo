@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="rv-tile-detail-title">
+  <title id="rv-tile-detail-title">Material detail composition</title>
+  <defs>
+    <clipPath id="rv-td-clip"><rect width="800" height="600"/></clipPath>
+    <pattern id="rv-td-hatch" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 0V18" fill="none" stroke="#33526E" stroke-width="3"/>
+    </pattern>
+    <pattern id="rv-td-brick" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M0 50H100M0 100H100M50 0V50M0 50V100M100 50V100" fill="none" stroke="#7C93A6" stroke-width="2.5"/>
+    </pattern>
+    <pattern id="rv-td-batten" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M14 0V28" fill="none" stroke="#33526E" stroke-width="6"/>
+    </pattern>
+    <pattern id="rv-td-lap" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 40H40" fill="none" stroke="#B9C6D0" stroke-width="3"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#rv-td-clip)">
+    <rect width="800" height="600" fill="#FAF7F2"/>
+    <rect width="200" height="600" fill="#F0EBE3"/>
+    <rect width="200" height="600" fill="url(#rv-td-lap)"/>
+    <rect x="200" width="200" height="600" fill="#0B1F33"/>
+    <rect x="200" width="200" height="600" fill="url(#rv-td-hatch)"/>
+    <rect x="400" width="200" height="600" fill="#FAF7F2"/>
+    <rect x="400" width="200" height="600" fill="url(#rv-td-brick)"/>
+    <rect x="600" width="200" height="600" fill="#17344B"/>
+    <rect x="600" width="200" height="600" fill="url(#rv-td-batten)"/>
+    <g fill="#0B1F33"><rect x="198" width="4" height="600"/><rect x="398" width="4" height="600"/><rect x="598" width="4" height="600"/></g>
+    <path fill="#C2410C" d="M0 440L800 260V276L0 456Z"/>
+  </g>
+</svg>

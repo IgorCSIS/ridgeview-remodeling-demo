@@ -1,0 +1,41 @@
+---
+/**
+ * Projects gallery, placed high because remodeling is bought with the eyes.
+ *
+ * The tiles are drawn architectural compositions, not photographs. That is
+ * deliberate twice over: the brand is fictional so there are no real job
+ * photos to show, and drawn artwork carries no stock-image licensing. Each
+ * caption states scope and duration, which is what a homeowner can actually
+ * evaluate.
+ */
+import { projects } from "../data/content";
+
+const tiles = import.meta.glob<string>("../assets/tile-*.svg", { query: "?raw", import: "default", eager: true });
+
+function tileFor(art: string): string {
+  return tiles[`../assets/tile-${art}.svg`] ?? "";
+}
+---
+
+<section id="projects" class="py-section lg:py-section-lg">
+  <div class="mx-auto max-w-content px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{projects.eyebrow}</p>
+      <h2 class="t-h2 mt-5">{projects.title}</h2>
+      <p class="t-lead mt-5">{projects.intro}</p>
+    </div>
+
+    <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.items.map((item, i) => (
+        <li class="card card-hover overflow-hidden" data-reveal style={`transition-delay:${i * 60}ms`}>
+          <div class="aspect-[4/3] overflow-hidden bg-sand-200 [&>svg]:h-full [&>svg]:w-full" set:html={tileFor(item.art)} />
+          <div class="p-6">
+            <p class="text-label font-semibold uppercase text-ember-600">{item.city}</p>
+            <h3 class="t-h3 mt-2">{item.name}</h3>
+            <p class="mt-2 text-small text-ink-600">{item.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
