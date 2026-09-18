@@ -8,7 +8,34 @@ import { business, footer, nav, hero } from "../data/content";
 import Icon from "@components/Icon.astro";
 import logo from "@assets/logo-lockup.svg?raw";
 
+interface Props {
+  /**
+   * Which page the footer is rendering on. See Nav.astro for the same idea.
+   *
+   * It matters because every link in here is a bare fragment. On the home
+   * page "#services" resolves; on the thank-you page it resolves to nothing
+   * and the link silently does nothing at all.
+   */
+  cta?: "quote" | "home";
+}
+
+const { cta = "quote" } = Astro.props;
+
 const year = new Date().getFullYear();
+const homeHref = import.meta.env.BASE_URL;
+
+// Away from the home page, point the section links at the home page plus the
+// anchor rather than dropping them. They still take you where they say, and
+// the footer stays useful instead of being gutted.
+const sectionLinks =
+  cta === "home"
+    ? nav.map((item) => ({ ...item, href: `${homeHref}${item.href}` }))
+    : nav;
+
+const primaryCta =
+  cta === "home"
+    ? { label: "Back to home", href: homeHref }
+    : { label: hero.primaryCta.label, href: hero.primaryCta.href };
 ---
 
 <footer class="band-dark relative z-10 mt-0">
@@ -26,7 +53,7 @@ const year = new Date().getFullYear();
       <nav class="md:col-span-3" aria-label="Footer">
         <p class="text-label font-semibold uppercase text-sand-400">Sections</p>
         <ul class="mt-4 space-y-2.5 text-small">
-          {nav.map((item) => (
+          {sectionLinks.map((item) => (
             <li><a href={item.href} class="text-sand-100 hover:text-accentDark">{item.label}</a></li>
           ))}
         </ul>
@@ -35,7 +62,7 @@ const year = new Date().getFullYear();
       <div class="md:col-span-4">
         <p class="text-label font-semibold uppercase text-sand-400">Service area</p>
         <p class="mt-4 text-small text-sand-100">{business.cities.join(" · ")}</p>
-        <a href={hero.primaryCta.href} class="btn btn-primary mt-6 w-full sm:w-auto">{hero.primaryCta.label}</a>
+        <a href={primaryCta.href} class="btn btn-primary mt-6 w-full sm:w-auto">{primaryCta.label}</a>
       </div>
     </div>
 
