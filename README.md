@@ -18,7 +18,7 @@ process spelled out step by step, honest price ranges instead of call for
 pricing, an FAQ, and a quote form that actually delivers. Astro and Tailwind,
 static on GitHub Pages, with a free lead-alert layer behind the form.
 
-**Live site:** https://igorcsis.github.io/ridgeview-remodeling-demo/
+**Live site:** https://igorcsis.github.io/ridgeview-remodeling-demo/  
 **Stack:** Astro 4, Tailwind 3, TypeScript. Static output, no server to pay for.
 
 > **Ridgeview Remodeling is a fictional company.** It does not exist, has no license, and has never
