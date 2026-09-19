@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-label="What happens when the quote form is submitted: the lead is written to a Google Sheet by sendBeacon and posted to Web3Forms by fetch, in parallel, and with scripting off the native form post still reaches the same inbox.">
+  <title>What happens when the quote form is submitted</title>
+  <desc>One submission fans out to two independent destinations. A sendBeacon call appends the lead as a row to a Google Sheet, best effort, and a fetch POST sends it to Web3Forms which emails the owner. Neither waits on the other. With scripting off the form posts natively to the same inbox.</desc>
+
+  <rect width="1200" height="330" rx="16" fill="#05111D"/>
+  <rect x="0.5" y="0.5" width="1199" height="329" rx="15.5" fill="none" stroke="#163049"/>
+
+  <!-- the form -->
+  <g transform="translate(48 96)">
+    <rect x="0.5" y="0.5" width="219" height="118" rx="10" fill="#0B1F33" stroke="#163049"/>
+    <text x="18" y="34" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFDFA">Quote form</text>
+    <rect x="18" y="50" width="160" height="7" rx="3.5" fill="#2C4A66"/>
+    <rect x="18" y="64" width="128" height="7" rx="3.5" fill="#2C4A66"/>
+    <rect x="18" y="78" width="96"  height="7" rx="3.5" fill="#2C4A66"/>
+    <text x="18" y="104" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">Name, job, city, budget</text>
+  </g>
+
+  <!--
+    The fan-out is the whole point of this picture. The two paths are drawn
+    as siblings off one node because that is what the code does: neither
+    waits on the other, and the sheet write is fired before the fetch.
+  -->
+  <path d="M268 155 H318 V92 H430" fill="none" stroke="#2C4A66" stroke-width="2"/>
+  <path d="M268 155 H318 V222 H430" fill="none" stroke="#2C4A66" stroke-width="2"/>
+  <circle cx="318" cy="155" r="4.5" fill="#E39A3C"/>
+  <path d="M430 92 l-9 -5 v10 z"  fill="#2C4A66"/>
+  <path d="M430 222 l-9 -5 v10 z" fill="#2C4A66"/>
+
+  <text x="426" y="80"  text-anchor="end" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#E39A3C">sendBeacon, fires first</text>
+  <text x="426" y="246" text-anchor="end" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#E39A3C">fetch POST</text>
+
+  <!-- destination: the sheet -->
+  <g transform="translate(436 50)">
+    <rect x="0.5" y="0.5" width="359" height="84" rx="10" fill="#0B1F33" stroke="#163049"/>
+    <text x="18" y="32" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFDFA">Google Sheet</text>
+    <text x="18" y="54" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">Apps Script appends the lead as a row.</text>
+    <text x="18" y="72" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">Best effort. A failure never fails the submit.</text>
+  </g>
+
+  <!-- destination: the inbox -->
+  <g transform="translate(436 180)">
+    <rect x="0.5" y="0.5" width="359" height="84" rx="10" fill="#0B1F33" stroke="#163049"/>
+    <text x="18" y="32" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFDFA">Your inbox</text>
+    <text x="18" y="54" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">Web3Forms accepts the post and emails you.</text>
+    <text x="18" y="72" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">Must not fail. The lead is lost if it does.</text>
+  </g>
+
+  <!-- then the visitor lands somewhere real -->
+  <path d="M795 222 H860" fill="none" stroke="#2C4A66" stroke-width="2"/>
+  <path d="M860 222 l-9 -5 v10 z" fill="#2C4A66"/>
+  <g transform="translate(866 180)">
+    <rect x="0.5" y="0.5" width="285" height="84" rx="10" fill="#0B1F33" stroke="#163049"/>
+    <text x="18" y="32" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFDFA">Thank-you page</text>
+    <text x="18" y="54" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">A real page, so the conversion</text>
+    <text x="18" y="72" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#C9BCA6">lands somewhere either way.</text>
+  </g>
+
+  <!-- the path that survives no JavaScript at all -->
+  <path d="M48 282 H1152" stroke="#163049" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="56" cy="306" r="4" fill="#C2410C"/>
+  <text x="70" y="311" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" fill="#C9BCA6">Scripting off: the form is a real HTML post to the same inbox, and Web3Forms redirects to the same thank-you page.</text>
+</svg>

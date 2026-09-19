@@ -41,9 +41,18 @@ the demo makes it concrete instead of theoretical.
 
 ## Sending leads to a spreadsheet as well as your inbox
 
+<p align="center">
+  <img src="assets/lead-flow.svg" alt="One submission fans out to two independent destinations. A sendBeacon call fires first and appends the lead as a row to a Google Sheet, best effort, where a failure never fails the submit. A fetch POST sends it to Web3Forms, which emails the owner and must not fail. The visitor then lands on a real thank-you page. With scripting off, the form is a plain HTML post to the same inbox." width="880">
+</p>
+
 The form emails you through Web3Forms. It can also drop each lead into a
 Google Sheet at the same time, which is what makes the list sortable, keepable,
 and drafting-ready.
+
+The two paths are siblings, not a chain. The sheet write fires first and is
+best effort, so a broken endpoint costs you the convenience copy and nothing
+else. The email is the path that must not fail, because that is the one the
+lead actually lives in.
 
 Set a repository secret `PUBLIC_SHEET_ENDPOINT` to the web app URL of the
 Apps Script in the companion repo, then re-run the deploy workflow. The full
