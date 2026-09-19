@@ -12,6 +12,10 @@
  * is also the kind of fake a human reader cannot see, which is the worst
  * kind. If this site is white-labeled for a real contractor with real
  * reviews, that markup can be added then.
+ *
+ * It does carry a disambiguatingDescription saying the business is fictional,
+ * so a crawler reading only the JSON-LD gets the same disclosure a person
+ * gets from the banner at the top of the page.
  */
 import "../styles/global.css";
 import Nav from "@components/Nav.astro";
@@ -48,6 +52,14 @@ const schema = {
   "@type": "GeneralContractor",
   name: business.name,
   description: meta.description,
+  // Anything reading the structured data on its own, without the DEMO SITE
+  // banner above the page, would otherwise see a contractor in El Cajon with
+  // a phone number and take it for a real one. The phone is inside the
+  // 555-0100 fiction block and the email is on a reserved .example domain,
+  // but neither of those is legible to a crawler, so the disclosure is
+  // stated in the markup as well as on the page.
+  disambiguatingDescription:
+    "Fictional business. This is a portfolio demonstration site built by Igor Lima, not a real contractor. Ridgeview Remodeling does not exist, holds no license, and has never built anything.",
   url: canonical,
   image: ogImage,
   telephone: business.phone,

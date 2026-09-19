@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-label="Ridgeview Remodeling: a demo contractor site for kitchens, baths and ADUs in East County San Diego.">
+  <title>Ridgeview Remodeling</title>
+  <desc>Three service cards showing honest price ranges: a bathroom remodel, a kitchen remodel and a garage conversion ADU, each with what the work covers.</desc>
+
+  <rect width="1200" height="300" rx="16" fill="#05111D"/>
+  <rect x="0.5" y="0.5" width="1199" height="299" rx="15.5" fill="none" stroke="#163049"/>
+
+  <!-- The roofline mark, at the site's own proportions. -->
+  <g transform="translate(66 106) scale(1.375)">
+    <path fill="#FFFDFA" d="M2 31 L32 10 L62 31 L62 42 L32 21 L2 42 Z"/>
+    <path fill="#FFFDFA" d="M29.5 25 H34.5 V38 H29.5 Z"/>
+    <path fill="#C2410C" d="M12 56 L32 42 L52 56 L52 62 L32 48 L12 62 Z"/>
+  </g>
+
+  <!--
+    A serif wordmark, not the sans the sibling banners use. Ridgeview's
+    display face is Fraunces and the brand reads as a cornerstone, so the
+    banner follows the site rather than the set.
+  -->
+  <text x="174" y="128" font-family="Georgia, Iowan Old Style, Times New Roman, serif" font-size="44" font-weight="700" fill="#FFFDFA" letter-spacing="-0.8">Ridgeview</text>
+  <text x="174" y="174" font-family="Georgia, Iowan Old Style, Times New Roman, serif" font-size="44" font-weight="700" fill="#FFFDFA" letter-spacing="-0.8">Remodeling</text>
+  <text x="176" y="210" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="19" fill="#C9BCA6">Kitchens, baths and ADUs in East County</text>
+  <circle cx="183" cy="240" r="5" fill="#E39A3C"/>
+  <text x="197" y="246" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#C9BCA6">Demo brand. Price ranges, not call for pricing.</text>
+
+  <g transform="translate(660 54)">
+    <rect width="474" height="58" rx="9" fill="#0B1F33" stroke="#163049"/>
+    <text x="16" y="26" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFDFA">Bathroom remodel</text>
+    <text x="16" y="44" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#C9BCA6">Full rebuild, taken to the studs.</text>
+    <text x="458" y="38" text-anchor="end" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E39A3C">$25,000 to $60,000</text>
+  </g>
+  <g transform="translate(660 120)">
+    <rect width="474" height="58" rx="9" fill="#0B1F33" stroke="#163049"/>
+    <text x="16" y="26" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFDFA">Kitchen remodel</text>
+    <text x="16" y="44" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#C9BCA6">Cabinets, counters, and new electrical.</text>
+    <text x="458" y="38" text-anchor="end" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E39A3C">$45,000 to $110,000</text>
+  </g>
+  <g transform="translate(660 186)">
+    <rect width="474" height="58" rx="9" fill="#0B1F33" stroke="#163049"/>
+    <text x="16" y="26" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFFDFA">Garage conversion ADU</text>
+    <text x="16" y="44" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#C9BCA6">Kitchenette, full bath, separate entry.</text>
+    <text x="458" y="38" text-anchor="end" font-family="Libre Franklin, system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E39A3C">From $150,000</text>
+  </g>
+</svg>

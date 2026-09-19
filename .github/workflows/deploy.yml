@@ -9,6 +9,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Build pull requests as a status check. They never deploy: the deploy job
+  # is gated on the push event below, so a PR proves the site still compiles
+  # without touching what is live.
+  pull_request:
+    branches: [main]
   # Manual trigger, for redeploying after changing a repo secret without
   # having to push a code change.
   workflow_dispatch:
@@ -21,7 +26,9 @@ permissions:
 # Cancel an in-flight deploy when a newer push lands, so main never gets
 # overtaken by a slower older run.
 concurrency:
-  group: pages
+  # Keyed by ref so a pull request build cannot cancel the live deploy, while
+  # two pushes to main still collapse to the newest one.
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -66,6 +73,8 @@ jobs:
 
   deploy:
     needs: build
+    # Pull requests stop at build. Only main publishes.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

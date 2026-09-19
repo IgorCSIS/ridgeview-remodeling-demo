@@ -1,24 +1,35 @@
-<div align="center">
+<p align="center">
+  <img src="assets/banner.svg" alt="Ridgeview Remodeling: a demo contractor site for kitchens, baths and ADUs in East County San Diego. Three service cards showing honest price ranges for a bathroom remodel, a kitchen remodel and a garage conversion ADU." width="880">
+</p>
 
-![Ridgeview Remodeling: remodels that finish on schedule and on budget](public/og-image.png)
+<p align="center">
+  <a href="https://github.com/IgorCSIS/ridgeview-remodeling-demo/actions"><img src="https://img.shields.io/github/actions/workflow/status/IgorCSIS/ridgeview-remodeling-demo/deploy.yml?branch=main&label=build&labelColor=05111D&color=C2410C&style=flat-square" alt="Build status"></a>
+  <img src="https://img.shields.io/badge/astro-4-C2410C?labelColor=05111D&style=flat-square" alt="Astro 4">
+  <img src="https://img.shields.io/badge/tailwind-3-C2410C?labelColor=05111D&style=flat-square" alt="Tailwind 3">
+  <img src="https://img.shields.io/badge/hosting-%240%20on%20GitHub%20Pages-C2410C?labelColor=05111D&style=flat-square" alt="Free to host on GitHub Pages">
+  <img src="https://img.shields.io/badge/license-MIT-C2410C?labelColor=05111D&style=flat-square" alt="MIT licensed">
+</p>
 
-# Ridgeview Remodeling
+# Ridgeview Remodeling: a lead-capture site for East County trades
 
-**A demo contractor marketing site. Astro + Tailwind on GitHub Pages, with a free lead-alert layer.**
+A demo contractor marketing site for kitchens, bathrooms, ADUs and whole-home
+remodels in El Cajon and the rest of East County San Diego. Services, the
+process spelled out step by step, honest price ranges instead of call for
+pricing, an FAQ, and a quote form that actually delivers. Astro and Tailwind,
+static on GitHub Pages, with a free lead-alert layer behind the form.
 
-### [Live site](https://igorcsis.github.io/ridgeview-remodeling-demo/)
-
-![Astro](https://img.shields.io/badge/Astro-4-0B1F33?logo=astro&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind-3-0B1F33?logo=tailwindcss&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-0B1F33?logo=typescript&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-C2410C)
-
-</div>
+**Live site:** https://igorcsis.github.io/ridgeview-remodeling-demo/
+**Stack:** Astro 4, Tailwind 3, TypeScript. Static output, no server to pay for.
 
 > **Ridgeview Remodeling is a fictional company.** It does not exist, has no license, and has never
 > built anything. This site is a portfolio sample built by [Igor Lima](https://igorcsis.github.io/niftyai-portfolio/)
 > to show what a contractor's website should look like and how the lead flow behind it works.
-> Every review on the page is a written sample and is labeled as one.
+> Every review on the page is a written sample and is labeled as one. The structured data says the
+> same thing, so a crawler reading only the JSON-LD cannot mistake it for a real business either.
+
+<p align="center">
+  <img src="assets/screenshot.png" alt="The Ridgeview home page. A DEMO SITE banner runs across the top, above a navy hero reading Remodels that finish on schedule and on budget, with a Get my free quote button and a phone number." width="880">
+</p>
 
 ## What this is for
 
